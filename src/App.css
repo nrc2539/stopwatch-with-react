@@ -1,38 +1,110 @@
-.App {
-  text-align: center;
+.container-laptime {
+	margin: 5px auto;
+	width: 60%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container-stopwatch {
+	margin: 10px auto;
+	width: 60%;
+	height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.start-button {
+	background-color: red;
+	border-color: red;
+	color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.start-button:hover {
+	background-color: #ff4d4f;
+	border-color: #ff4d4f;
+	color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.start-button:focus {
+	background-color: #ff4d4f;
+	border-color: #ff4d4f;
+	color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pause-button {
+	background-color: #fd7f08;
+	border-color:  #fd7f08;
+	color: white;
+}
+
+.pause-button:hover {
+	background-color: #ffa940;
+	border-color: #ffa940;
+}
+
+.pause-button:active {
+	background-color: #ffa940;
+}
+
+.pause-button:focus {
+	background-color: #ffa940;
+	border-color: #ffa940;
+}
+
+.lap-button {
+	background-color: green;
+	border: green;
+	color: white;
+}
+
+.lap-button:hover {
+	background-color: #389e0d;
+	border-color: #389e0d;
+	color: white;
+}
+
+.lap-button:active {
+	background-color: #389e0d;
+}
+
+.lap-button:focus {
+	background-color:#389e0d;
+}
+
+.reset-button {
+	border-color: red;
+	background-color: #ffccc7;
+	color: red;
+}
+
+.reset-button:hover {
+	background-color: red;
+	border-color: red;
+	color: white;
+}
+
+.reset-button:active {
+	background-color: red;
+	border-color: red;
+}
+
+.reset-button:focus {
+	background-color: red;
+	border-color: red;
+}
+
+.resume-button {
+	background-color: #1890ff;
+	background-color: #1890ff;
+	color: white;
+}
+
+.resume-button:hover {
+	background-color: #40a9ff;
+	border-color: #40a9ff;
+}
+
+.resume-button:active{
+	background-color: #40a9ff;
+}
+
+.resume-button:focus{
+	background-color: #40a9ff;
+	border-color: #40a9ff;
 }
