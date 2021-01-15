@@ -63,13 +63,39 @@ function StopWatchComponent() {
 	}
 
 	const lapTime = () => {
+		let prevLap = listLapTime[0] ? listLapTime[0].splitTimeObj : {hour: 0, minute: 0, second: 0, millisec: 0}
+		// แปลง {hour: 0, minute: 0, second: 0, millisec: 0} เก็บไว้เป็น millisec ก่อนนำไปคำนวณแล้วแปลง format กลับมา
 		let newLapTime = {
 			key: listLapTime.length + 1,
 			lap: listLapTime.length + 1,
-			time: `${time.hour === 0 ? '' : time.hour < 10 ? "0"+time.hour+":" : time.hour+":"}${time.minute < 10 ? "0"+time.minute : time.minute}:${time.second < 10 ? "0"+time.second : time.second}:${time.millisec < 10 ? "0"+time.millisec : time.millisec}`,
+			splitTimeText: `${time.hour === 0 ? '' : time.hour < 10 ? "0"+time.hour+":" : time.hour+":"}${time.minute < 10 ? "0"+time.minute : time.minute}:${time.second < 10 ? "0"+time.second : time.second}:${time.millisec < 10 ? "0"+time.millisec : time.millisec}`,
+			lapTimeText : calLapTime(prevLap, {...time}),
+			splitTimeObj : {...time}
 		}
-		console.log(listLapTime[0])
 		setlistLapTime(prevListLapTime => ([newLapTime, ...prevListLapTime]))
+	}
+
+	const calLapTime = (prevLap, currentLap) => {
+		let millisecPrevLap = timeObjTomillisec(prevLap)
+		let millisecCurrentLap = timeObjTomillisec(currentLap)
+		let diffMillisec = millisecCurrentLap - millisecPrevLap
+		let hourLapTime = Math.floor(diffMillisec / (60 * 60 * 1000))
+		diffMillisec = diffMillisec % (60 * 60 * 1000)
+		let minuteLaptime = Math.floor(diffMillisec / (60 * 1000))
+		diffMillisec = diffMillisec % (60 * 1000)
+		let secondLapTime = Math.floor(diffMillisec / 1000)
+		diffMillisec = diffMillisec % 1000
+		let millisecLapTime = Math.floor(diffMillisec/10)
+		let lapTimeText = `${hourLapTime === 0 ? '' : hourLapTime < 10 ? "0"+hourLapTime+":" : hourLapTime+":"}${minuteLaptime < 10 ? "0"+minuteLaptime : minuteLaptime}:${secondLapTime < 10 ? "0"+secondLapTime : secondLapTime}:${millisecLapTime < 10 ? "0"+millisecLapTime: millisecLapTime}`
+		return lapTimeText
+	}
+
+	const timeObjTomillisec = (timeObj) => {
+		let hourToMillisec = timeObj.hour * 60 * 60 * 1000
+		let minuteToMillisec = timeObj.minute * 60 * 1000
+		let secondToMillisec = timeObj.second * 1000
+		let millsec = timeObj.millisec * 10 // multiply by 10 because time on UI is not real millisec (real millisec is 0-999 but in UI show 0-99)
+		return (hourToMillisec + minuteToMillisec + secondToMillisec + millsec)
 	}
 
 	const resetTime = () => {
