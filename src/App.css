@@ -12,6 +12,7 @@
 .start-button {
 	background-color: red;
 	border-color: red;
+	min-width: 120px;
 	color: white;
 }
 
@@ -30,6 +31,7 @@
 .pause-button {
 	background-color: #fd7f08;
 	border-color:  #fd7f08;
+	min-width: 120px;
 	color: white;
 }
 
@@ -49,6 +51,7 @@
 
 .lap-button {
 	background-color: green;
+	min-width: 120px;
 	border: green;
 	color: white;
 }
@@ -70,6 +73,7 @@
 .reset-button {
 	border-color: red;
 	background-color: #ffccc7;
+	min-width: 120px;
 	color: red;
 }
 
@@ -92,6 +96,7 @@
 .resume-button {
 	background-color: #1890ff;
 	background-color: #1890ff;
+	min-width: 120px;
 	color: white;
 }
 
